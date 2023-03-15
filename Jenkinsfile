@@ -1,9 +1,5 @@
 pipeline {
-   agent {
-    node {
-        label 'java_node'
-    }
-   }
+  agent any
      tools { 
         maven  'MAVEN' 
         }
