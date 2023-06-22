@@ -4,26 +4,11 @@ pipeline {
         maven 'MAVEN' 
         }
     stages{
-      stage("clone code")  {
-            steps {
-                script {
-                    git 'https://github.com/alimelus/javaparser-maven-sample.git';
-            }
-            }
-            }
         stage("mvn build") {
             steps {
-                    sh 'mvn clean package'
+                    sh 'mvn -X clean package'
          
                 }
                 }
-      stage('Docker Build and Tag') {
-           steps {               
-                sh 'docker build .' 
-                //  sh 'docker tag nginxtest sunku/nginxtest:latest'
-                // sh 'docker tag nginxtest sunku/nginxtest:$BUILD_NUMBER'
-               
-          }
-        }
             }
             }
