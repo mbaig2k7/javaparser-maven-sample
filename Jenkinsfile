@@ -10,12 +10,13 @@ pipeline {
          
                 }
                 }
-       post {
-              
-        failure {
-            mail to: mbaig2k7@gmail.com, subject: 'The Pipeline failed :('
-        }
-            }
+        stage("Docker") {
+            steps {
+                    sh 'docker build .'
+         
+                }
+                }
+       
             }
 }
 
